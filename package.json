@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "cd packages/agents/apps/web && npm run build && npm run preview",
+    "start": "cd packages/agents/apps/web && npm install && npm run build && npm run preview || npm run dev",
     "dev": "cd packages/agents/apps/web && npm run dev",
     "build": "cd packages/agents/apps/web && npm install && npm run build",
     "test": "echo 'Tests configured in package apps'"
