@@ -1,0 +1,41 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <title>Sign in</title>
+  </head>
+  <body>
+    <main>
+      <h1>Sign in</h1>
+      <p>Restore your enterprise publishing workspace session.</p>
+
+      <form id="signin-form">
+        <label>
+          Session JSON
+          <textarea id="session-json" rows="20"></textarea>
+        </label>
+
+        <button type="submit">Restore Session</button>
+      </form>
+    </main>
+
+    <script>
+      const form = document.getElementById('signin-form');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const value = document.getElementById('session-json').value;
+
+        try {
+          JSON.parse(value);
+          localStorage.setItem('publishing-platform-session', value);
+          window.location.href = '/dashboard';
+        } catch (error) {
+          alert('Invalid session JSON');
+        }
+      });
+    </script>
+  </body>
+</html>

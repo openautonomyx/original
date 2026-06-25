@@ -1,0 +1,15 @@
+{
+  "name": "openautonomyx",
+  "version": "1.0.0",
+  "description": "OpenAutonomyx - Unified Platform & Agents Monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "dev": "yarn workspaces run dev",
+    "test": "yarn workspaces run test",
+    "deploy": "yarn workspaces run deploy"
+  }
+}

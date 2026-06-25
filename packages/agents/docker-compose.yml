@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: publishing-platform-web
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      SURREALDB_URL: http://surrealdb:8000/rpc
+      SURREALDB_NAMESPACE: publishing_platform
+      SURREALDB_DATABASE: main
+      SURREALDB_USERNAME: root
+      SURREALDB_PASSWORD: root
+    depends_on:
+      - surrealdb
+    restart: unless-stopped
+
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    container_name: publishing-platform-surrealdb
+    command: start --user root --pass root rocksdb:/data/database.db
+    ports:
+      - '8000:8000'
+    volumes:
+      - surrealdb-data:/data
+    restart: unless-stopped
+
+volumes:
+  surrealdb-data:

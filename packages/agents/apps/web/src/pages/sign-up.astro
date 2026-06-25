@@ -1,0 +1,65 @@
+---
+---
+
+<html lang="en">
+  <head>
+    <title>Sign up</title>
+  </head>
+  <body>
+    <main>
+      <h1>Create your workspace</h1>
+      <p>Start an enterprise CreativeWork CMS workspace.</p>
+
+      <form id="signup-form">
+        <label>
+          Name
+          <input name="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          Workspace Name
+          <input name="tenantName" required />
+        </label>
+
+        <label>
+          Workspace Slug
+          <input name="tenantSlug" required />
+        </label>
+
+        <button type="submit">Create Workspace</button>
+      </form>
+
+      <pre id="result"></pre>
+    </main>
+
+    <script>
+      const form = document.getElementById('signup-form');
+      const result = document.getElementById('result');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+
+        const response = await fetch('/api/session', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        localStorage.setItem('publishing-platform-session', JSON.stringify(data));
+        result.textContent = JSON.stringify(data, null, 2);
+
+        if (response.ok) {
+          window.location.href = '/dashboard';
+        }
+      });
+    </script>
+  </body>
+</html>

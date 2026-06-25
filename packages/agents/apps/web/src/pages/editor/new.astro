@@ -1,0 +1,23 @@
+---
+import PublishingEditor from '../../components/editor/PublishingEditor.jsx';
+
+const type = Astro.url.searchParams.get('type') || 'CreativeWork';
+---
+
+<html lang="en">
+  <head>
+    <title>Create {type}</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Create {type}</h1>
+        <p>Enterprise CreativeWork editor powered by Schema.org metadata and TipTap.</p>
+      </header>
+
+      <section>
+        <PublishingEditor creativeWorkType={type} client:load />
+      </section>
+    </main>
+  </body>
+</html>

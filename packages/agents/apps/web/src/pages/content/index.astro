@@ -1,0 +1,33 @@
+---
+const response = await fetch(`${Astro.url.origin}/api/content?tenant=default`);
+const works = response.ok ? await response.json() : [];
+---
+
+<html lang="en">
+  <head>
+    <title>Content</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Content</h1>
+        <p>Manage CreativeWork records across the publishing workflow.</p>
+        <a href="/editor/new?type=Article">Create Article</a>
+      </header>
+
+      <section>
+        {works.length === 0 && <p>No content yet.</p>}
+        <ul>
+          {works.map((work) => (
+            <li>
+              <strong>{work.schema?.headline || work.schema?.name || work.slug || work.id}</strong>
+              <span> — {work.creativeWorkType}</span>
+              <span> — {work.status}</span>
+              <a href={`/content/${encodeURIComponent(work.id)}`}>Open</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

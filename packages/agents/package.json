@@ -1,0 +1,19 @@
+{
+  "name": "publishing-platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @publishing-platform/web dev",
+    "build": "pnpm --filter @publishing-platform/web build",
+    "preview": "pnpm --filter @publishing-platform/web preview",
+    "start": "pnpm --filter @publishing-platform/web start",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "conformance": "pnpm --filter @publishing-platform/conformance check",
+    "ci": "pnpm typecheck && pnpm conformance && pnpm build"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@9.12.0"
+}

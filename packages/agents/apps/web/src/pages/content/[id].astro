@@ -1,0 +1,54 @@
+---
+const { id } = Astro.params;
+
+const response = await fetch(`${Astro.url.origin}/api/content?tenant=default`);
+const works = response.ok ? await response.json() : [];
+const work = works.find((entry) => entry.id === id);
+---
+
+<html lang="en">
+  <head>
+    <title>{work?.schema?.headline || 'CreativeWork'}</title>
+  </head>
+  <body>
+    <main>
+      {
+        !work && (
+          <section>
+            <h1>Content not found</h1>
+          </section>
+        )
+      }
+
+      {
+        work && (
+          <article>
+            <header>
+              <h1>{work.schema?.headline}</h1>
+              <p>{work.schema?.description}</p>
+
+              <ul>
+                <li>Type: {work.creativeWorkType}</li>
+                <li>Status: {work.status}</li>
+                <li>Created: {work.createdAt}</li>
+                <li>Updated: {work.updatedAt}</li>
+              </ul>
+            </header>
+
+            <section set:html={work.schema?.articleBody || ''}></section>
+
+            <section>
+              <h2>Structured Data</h2>
+              <pre>{JSON.stringify(work.schema, null, 2)}</pre>
+            </section>
+
+            <section>
+              <h2>Workflow</h2>
+              <pre>{JSON.stringify(work.workflow || [], null, 2)}</pre>
+            </section>
+          </article>
+        )
+      }
+    </main>
+  </body>
+</html>

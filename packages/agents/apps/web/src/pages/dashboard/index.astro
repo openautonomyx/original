@@ -1,0 +1,54 @@
+---
+import { creativeWorkTypes } from '../../lib/creative-work-types';
+---
+
+<html lang="en">
+  <head>
+    <title>Publishing Platform Dashboard</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Publishing Platform</h1>
+        <p>Enterprise CreativeWork management platform</p>
+      </header>
+
+      <section>
+        <h2>Create Content</h2>
+
+        {
+          creativeWorkTypes.map((group) => (
+            <section>
+              <h3>{group.group}</h3>
+
+              <div>
+                {
+                  group.types.map((type) => (
+                    <a href={`/editor/new?type=${type}`}>
+                      {type}
+                    </a>
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </section>
+
+      <section>
+        <h2>Workspace</h2>
+
+        <ul>
+          <li>Content</li>
+          <li>Media Library</li>
+          <li>Feeds</li>
+          <li>Schema Entities</li>
+          <li>Automation</li>
+          <li>Webhooks</li>
+          <li>Canvas Assets</li>
+          <li>Settings</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
