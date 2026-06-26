@@ -5,8 +5,8 @@ title: OpenAutonomyX
 tagline: "Create once. Publish everywhere. In any language."
 description: "The global creative platform for creators, businesses, and agencies. AI-powered content generation, 50+ languages, 6 social platforms."
 
-url: https://openautonomyx.github.io/original
-baseurl: "/original"
+url: https://openautonomyx.github.io/Publishing-Platform
+baseurl: "/Publishing-Platform"
 
 # Social media
 twitter_username: openautonomyx
@@ -22,13 +22,13 @@ plugins:
 # Footer Links
 footer_links:
   - label: "GitHub"
-    url: "https://github.com/openautonomyx/original"
+    url: "https://github.com/openautonomyx/Publishing-Platform"
   - label: "Discord"
     url: "https://discord.gg/openautonomyx"
   - label: "Twitter"
     url: "https://twitter.com/openautonomyx"
   - label: "Documentation"
-    url: "https://openautonomyx.github.io/original"
+    url: "https://openautonomyx.github.io/Publishing-Platform"
 
 # Build settings
 markdown: kramdown
