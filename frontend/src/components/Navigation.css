@@ -1,0 +1,93 @@
+.navbar {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.logo-text {
+  letter-spacing: 0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: white;
+  border-bottom-color: white;
+}
+
+.nav-auth {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-login,
+.btn-signup {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.btn-login {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-login:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-signup {
+  background: white;
+  color: var(--primary);
+}
+
+.btn-signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
