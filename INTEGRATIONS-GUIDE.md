@@ -33,7 +33,7 @@ OpenAutonomyX Platform
 
 1. **In Hostinger Dashboard:**
    - Click "WordPress"
-   - Install on `openautonomyx.com/blog` or `blog.openautonomyx.com`
+   - Install on `blog.publishing.openautonomyx.com`
    - Get WordPress admin access
 
 2. **Get WordPress API Credentials:**
@@ -49,7 +49,7 @@ OpenAutonomyX Platform
        "name": "My WordPress Blog",
        "type": "wordpress",
        "config": {
-         "apiUrl": "https://openautonomyx.com/blog",
+         "apiUrl": "https://blog.publishing.openautonomyx.com",
          "username": "admin",
          "password": "your-app-password"
        }
@@ -309,14 +309,14 @@ async function publishToMyPlatform(
 ## Complete Workflow
 
 ```
-User → OpenAutonomyX Platform
+User → publishing.openautonomyx.com
        ├─ Writes post
        ├─ Adds metadata (tags, category)
        ├─ Selects integrations to publish to
        └─ Click "Publish"
                  ↓
-            Integrations Service
-             ├─ WordPress Blog ✓
+            Integrations Service (3010)
+             ├─ WordPress Blog (blog.publishing.openautonomyx.com) ✓
              ├─ Medium ✓
              ├─ Substack ✓
              ├─ Twitter ✓

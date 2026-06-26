@@ -5,13 +5,13 @@
 **In your Hostinger Dashboard:**
 
 1. **Subdomain:** `blog`
-2. **Domain:** `openautonomyx.com`
+2. **Domain:** `publishing.openautonomyx.com`
 3. **Checkboxes:**
    - ✅ Custom folder for subdomain (checked)
    - ✅ Use public_html directory (checked)
 4. **Click:** `Create` button
 
-This creates: `blog.openautonomyx.com`
+This creates: `blog.publishing.openautonomyx.com`
 
 ---
 
@@ -21,7 +21,7 @@ This creates: `blog.openautonomyx.com`
 
 1. Go to **WordPress** (left sidebar)
 2. Click **Install WordPress**
-3. Select subdomain: `blog.openautonomyx.com`
+3. Select subdomain: `blog.publishing.openautonomyx.com`
 4. Fill in:
    - Site title: "OpenAutonomyX Blog"
    - Admin username: `admin` (or your choice)
@@ -37,7 +37,7 @@ Wait 5-10 minutes for installation to complete.
 
 **After WordPress is installed:**
 
-1. Go to: `https://blog.openautonomyx.com/wp-admin`
+1. Go to: `https://blog.publishing.openautonomyx.com/wp-admin`
 2. Login with credentials from Step 2
 3. Go to: **Users** → **Your Profile**
 4. Scroll down to: **Application Passwords**
@@ -61,7 +61,7 @@ curl -X POST http://localhost:3010/api/v1/integrations \
     "name": "Blog - OpenAutonomyX",
     "type": "wordpress",
     "config": {
-      "apiUrl": "https://blog.openautonomyx.com",
+      "apiUrl": "https://blog.publishing.openautonomyx.com",
       "username": "admin",
       "password": "PASTE_APP_PASSWORD_HERE"
     }
@@ -110,7 +110,7 @@ curl -X POST http://localhost:3010/api/v1/integrations/{integration-id}/publish 
     "success": true,
     "integrationId": "a1b2c3d4-...",
     "externalId": "42",
-    "url": "https://blog.openautonomyx.com/2026/06/welcome-to-openautonomyx/",
+    "url": "https://blog.publishing.openautonomyx.com/2026/06/welcome-to-openautonomyx/",
     "timestamp": "2026-06-26T..."
   }
 }
@@ -149,19 +149,19 @@ Then publish with one command to multiple platforms!
 ## Architecture After Setup
 
 ```
-openautonomyx.com/
+publishing.openautonomyx.com/
 ├── /                    → OpenAutonomyX Platform
 │   ├── /api/*          → Services
 │   ├── /admin          → Admin Panel
 │   └── /blog/*         → Internal blog API
 │
-├── blog.openautonomyx.com/ → Your WordPress Blog
+├── blog.publishing.openautonomyx.com/ → Your WordPress Blog
 │   ├── /wp-admin/      → WordPress Admin
 │   ├── /               → Blog Frontend
 │   └── /wp-json/*      → REST API
 │
 └── Integrations Service (3010)
-    ├── WordPress (blog.openautonomyx.com)
+    ├── WordPress (blog.publishing.openautonomyx.com)
     ├── Medium
     ├── Substack
     ├── Twitter
@@ -220,10 +220,10 @@ curl http://localhost:3010/api/v1/integrations/{id}/history
 ## Publishing Workflow
 
 **Step 1: Write in Platform**
-- OpenAutonomyX content editor
+- `publishing.openautonomyx.com` - OpenAutonomyX content editor
 
 **Step 2: Select Destinations**
-- ☑️ WordPress Blog
+- ☑️ WordPress Blog (blog.publishing.openautonomyx.com)
 - ☑️ Medium
 - ☑️ Twitter
 - ☑️ LinkedIn
